@@ -2,58 +2,58 @@ let pokemonList = [
   {
     name: 'Charmander', 
     height: 0.6,
-    type: 'Fire',
-    eggGroup: ['Monster', 'Dragon'],
-    ability: ['Blaze','Solar-power']
+    types: 'Fire',
+    eggGroups: ['Monster', 'Dragon'],
+    abilities: ['Blaze','Solar-power']
   },
   {
     name: 'Squirtle',
     height: 0.5,
-    type: 'Water',
-    eggGroup: ['Monster', 'Water'],
-    ability: ['Rain-dish', 'Torrent']
+    types: 'Water',
+    eggGroups: ['Monster', 'Water'],
+    abilities: ['Rain-dish', 'Torrent']
   },
   {
     name: 'Bulbasaur',
     height: 0.7,
-    type: ['Grass', 'Poison'],
-    eggGroup: ['Monster', 'Grass'],
-    ability: ['Chlorophyll', 'Overgrow']
+    types: ['Grass', 'Poison'],
+    eggGroups: ['Monster', 'Grass'],
+    abilities: ['Chlorophyll', 'Overgrow']
   },
   {
     name: 'Butterfree',
     height: 1.1,
-    type: ['Bug', 'Flying'],
-    eggGroup: 'Bug',
-    ability: ['Compoundeyes', 'Tinted-lens']
+    types: ['Bug', 'Flying'],
+    eggGroups: 'Bug',
+    abilities: ['Compoundeyes', 'Tinted-lens']
   },
   {
     name: 'Vulpix',
     height: 0.6,
-    type: 'Fire',
-    eggGroup: 'Field',
-    ability:  ['Flash-fire', 'Drought']
+    types: 'Fire',
+    eggGroups: 'Field',
+    abilities:  ['Flash-fire', 'Drought']
   },
   {
     name: 'Psyduck',
     height: 0.8,
-    type: 'Water',
-    eggGroup: ['Water', 'Field'],
-    ability: ['Damp', 'Cloud-nine', 'Swift-swim']
+    types: 'Water',
+    eggGroups: ['Water', 'Field'],
+    abilities: ['Damp', 'Cloud-nine', 'Swift-swim']
   },
   {
     name: 'Ekans',
     height: 2,
-    type: 'Poison',
-    eggGroup: ['Dragon', 'Field'],
-    ability: ['Intimidate', 'Shed-skin', 'Unnerve']
+    types: 'Poison',
+    eggGroups: ['Dragon', 'Field'],
+    abilities: ['Intimidate', 'Shed-skin', 'Unnerve']
   },
   {
     name: 'Pikachu',
     height: 0.4,
-    type: 'Electric',
-    eggGroup: ['Field', 'Fairy'],
-    ability: ['Static', 'Lightningrod']
+    types: 'Electric',
+    eggGroups: ['Field', 'Fairy'],
+    abilities: ['Static', 'Lightningrod']
   }
 ];
 
