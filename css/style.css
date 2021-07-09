@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: linear-gradient(to bottom, #4aba6e, #13a98c) center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
