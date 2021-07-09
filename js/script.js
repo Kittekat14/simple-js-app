@@ -1,3 +1,4 @@
+/*This Array contains the Pokémon Objects(key-value-pairs = properties inside) with the same keys to avoid errors - name of the key in plural, when arrays*/
 let pokemonList = [
   {
     name: 'Charmander', 
@@ -48,6 +49,7 @@ let pokemonList = [
     abilities: ['Static', 'Lightningrod']
   }
 ];
+
 /*for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon*/ 
 for (i=0; i<pokemonList.length; i++) {
   if (pokemonList[i].height>=2) {
