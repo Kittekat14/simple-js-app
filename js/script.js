@@ -3,49 +3,49 @@ let pokemonList = [
   {
     name: 'Charmander', 
     height: 0.6,
-    type: 'Fire',
+    types: 'Fire',
     abilities: ['Blaze','Solar-power']
   },
   {
     name: 'Squirtle',
     height: 0.5,
-    type: 'Water',
+    types: 'Water',
     abilities: ['Rain-dish', 'Torrent']
   },
   {
     name: 'Bulbasaur',
     height: 0.7,
-    type: 'Grass',
+    types: 'Grass',
     abilities: ['Chlorophyll', 'Overgrow']
   },
   {
     name: 'Butterfree',
     height: 1.1,
-    type: 'Bug',
+    types: 'Bug',
     abilities: ['Compoundeyes', 'Tinted-lens']
   },
   {
     name: 'Vulpix',
     height: 0.6,
-    type: 'Fire',
+    types: 'Fire',
     abilities: ['Flash-fire', 'Drought']
   },
   {
     name: 'Psyduck',
     height: 0.8,
-    type: 'Water',
+    types: 'Water',
     abilities: ['Damp', 'Cloud-nine', 'Swift-swim']
   },
   {
     name: 'Ekans',
     height: 2,
-    type: 'Poison',
+    types: 'Poison',
     abilities: ['Intimidate', 'Shed-skin', 'Unnerve']
   },
   {
     name: 'Pikachu',
     height: 0.4,
-    type: 'Electric',
+    types: 'Electric',
     abilities: ['Static', 'Lightningrod']
   }
 ];
