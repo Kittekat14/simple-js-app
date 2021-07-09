@@ -1,58 +1,58 @@
 /*This Array contains the Pokémon Objects(key-value-pairs = properties inside) with the same keys to avoid errors - name of the key in plural, when arrays*/
 let pokemonList = [
   {
-    name: 'Charmander', 
-    height: 0.6,
-    types: 'Fire',
-    abilities: ['Blaze','Solar-power']
+    name: 'Bellsprout', 
+    height: 0.7,
+    types: ['Grass', 'Poison'],
+    abilities: ['Chlorophyll','Gluttony']
   },
   {
-    name: 'Squirtle',
-    height: 0.5,
-    types: 'Water',
-    abilities: ['Rain-dish', 'Torrent']
+    name: 'Geodude',
+    height: 0.4,
+    types: ['Rock', 'Ground'],
+    abilities: ['Sturdy', 'Sand-veil', 'Rock-head']
   },
   {
     name: 'Bulbasaur',
     height: 0.7,
-    types: 'Grass',
+    types: ['Grass', 'Poison'],
     abilities: ['Chlorophyll', 'Overgrow']
   },
   {
-    name: 'Butterfree',
-    height: 1.1,
-    types: 'Bug',
-    abilities: ['Compoundeyes', 'Tinted-lens']
+    name: 'Dewgong',
+    height: 1.7,
+    types: ['Ice', 'Water'],
+    abilities: ['Thick-fat', 'Hydration', 'Ice-body']
   },
   {
-    name: 'Vulpix',
-    height: 0.6,
-    types: 'Fire',
-    abilities: ['Flash-fire', 'Drought']
+    name: 'Slowpoke',
+    height: 1.2,
+    types: ['Psychic', 'Water'],
+    abilities: ['Own-tempo', 'Oblivious', 'Regenerator']
   },
   {
-    name: 'Psyduck',
-    height: 0.8,
-    types: 'Water',
-    abilities: ['Damp', 'Cloud-nine', 'Swift-swim']
+    name: 'Paras',
+    height: 0.3,
+    types: ['Grass', 'Bug'],
+    abilities: ['Damp', 'Effect-spore', 'Dry-skin']
   },
   {
-    name: 'Ekans',
-    height: 2,
-    types: 'Poison',
-    abilities: ['Intimidate', 'Shed-skin', 'Unnerve']
+    name: 'Rhydon',
+    height: 1.9,
+    types: ['Rock', 'Ground'],
+    abilities: ['Lightningrod', 'Rock-head', 'Reckless']
   },
   {
-    name: 'Pikachu',
-    height: 0.4,
-    types: 'Electric',
-    abilities: ['Static', 'Lightningrod']
+    name: 'Doduo',
+    height: 1.4,
+    types: ['Flying', 'Normal'],
+    abilities: ['Early-bird', 'Run-away', 'Tangled-feet']
   }
 ];
 
 /*for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon*/ 
 for (i=0; i<pokemonList.length; i++) {
-  if (pokemonList[i].height>=2) {
+  if (pokemonList[i].height>=1.8) {
   document.write(`<b> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "WOW, that's a big pokemon!"</b><br>`);
   } else {
     document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "This pokemon is still growing!" </i><br>`)
