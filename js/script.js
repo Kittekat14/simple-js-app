@@ -2,58 +2,57 @@ let pokemonList = [
   {
     name: 'Charmander', 
     height: 0.6,
-    types: 'Fire',
-    eggGroups: ['Monster', 'Dragon'],
+    type: 'Fire',
     abilities: ['Blaze','Solar-power']
   },
   {
     name: 'Squirtle',
     height: 0.5,
-    types: 'Water',
-    eggGroups: ['Monster', 'Water'],
+    type: 'Water',
     abilities: ['Rain-dish', 'Torrent']
   },
   {
     name: 'Bulbasaur',
     height: 0.7,
-    types: ['Grass', 'Poison'],
-    eggGroups: ['Monster', 'Grass'],
+    type: 'Grass',
     abilities: ['Chlorophyll', 'Overgrow']
   },
   {
     name: 'Butterfree',
     height: 1.1,
-    types: ['Bug', 'Flying'],
-    eggGroups: 'Bug',
+    type: 'Bug',
     abilities: ['Compoundeyes', 'Tinted-lens']
   },
   {
     name: 'Vulpix',
     height: 0.6,
-    types: 'Fire',
-    eggGroups: 'Field',
-    abilities:  ['Flash-fire', 'Drought']
+    type: 'Fire',
+    abilities: ['Flash-fire', 'Drought']
   },
   {
     name: 'Psyduck',
     height: 0.8,
-    types: 'Water',
-    eggGroups: ['Water', 'Field'],
+    type: 'Water',
     abilities: ['Damp', 'Cloud-nine', 'Swift-swim']
   },
   {
     name: 'Ekans',
     height: 2,
-    types: 'Poison',
-    eggGroups: ['Dragon', 'Field'],
+    type: 'Poison',
     abilities: ['Intimidate', 'Shed-skin', 'Unnerve']
   },
   {
     name: 'Pikachu',
     height: 0.4,
-    types: 'Electric',
-    eggGroups: ['Field', 'Fairy'],
+    type: 'Electric',
     abilities: ['Static', 'Lightningrod']
   }
 ];
-
+/*for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon*/ 
+for (i=0; i<pokemonList.length; i++) {
+  if (pokemonList[i].height>=2) {
+  document.write(`<b> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "WOW, that's a big pokemon!"</b><br>`);
+  } else {
+    document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "This pokemon is still growing!" </i><br>`)
+  }
+}
