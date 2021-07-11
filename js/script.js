@@ -1,4 +1,4 @@
-/*This Array contains the Pokémon Objects(key-value-pairs = properties inside) with the same keys to avoid errors - name of the key in plural, when arrays*/
+/*This Array contains the Pokémon Objects(key-value-pairs = properties inside) with the same keys to avoid errors + key in plural, when arrays following*/
 let pokemonList = [
   {
     name: 'Bellsprout', 
@@ -53,8 +53,8 @@ let pokemonList = [
 /*for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon*/ 
 for (i=0; i<pokemonList.length; i++) {
   if (pokemonList[i].height>=1.8) {
-  document.write(`<b> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "WOW, that's a big pokemon!"</b><br>`);
+  document.write(`<ul><li><b> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "WOW, that's a big pokemon!" </b></li></ul><br>`);
   } else {
-    document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "This pokemon is still growing!" </i><br>`)
+  document.write(`<ul><li><i> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "This pokemon is still growing!" </i></li></ul><br>`);
   }
 }
