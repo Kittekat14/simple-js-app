@@ -52,55 +52,8 @@ let pokemonSafeList = (function () {
   ];
 }) ();
 
-/*
-let pokemonRepository = (function () {
-  let pokemonList = []; //still empty array;
 
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
-
-  function getAll() {
-    return pokemonList;
-  }
-
-  return {
-    add: add,
-    getAll: getAll
-  };
-})();
-console.log(pokemonRepository.getAll());
-
-
-/***Adding wie add-function new pokemon objects to the empty predefined array***/
-
-/*pokemonRepository.add(
-  {
-    name:'Pidgeot', 
-    height: 1.5, 
-    types: ['Flying', 'Normal'], 
-    abilities: ['Keen-eye', 'Tangled-feet', 'Big-pecks']
-  }
-);
-pokemonRepository.add(
-  {
-    name: 'Butterfree',
-    height: 1.1,
-    types: ['Bug','Flying'],
-    abilities: ['Compoundeyes', 'Tinted-lens']
-  }
-);
-pokemonRepository.add(
-  {
-    name: 'Charizard',
-    height: 1.7,
-    types: ['Fire','Flying'],
-    abilities: ['Blaze', 'Solar-power']
-  }
-);
-console.log(pokemonRepository.getAll()); */
-
-/*****Adding objects to array + checking if it's the right data type (object) in the function add() */
+/***** Declaring let pokemonRepository = IIFE and functions inside to call them later *********/
 let pokemonRepository = (function () {
   let pokemonList = []; //still empty array;
 
@@ -119,7 +72,7 @@ let pokemonRepository = (function () {
 })();
 
 
-/***Adding wie add-function new pokemon objects to the empty predefined array***/
+/***Using add-function for adding new pokemon objects inside the empty predeclared array + checking if it's the right data type and the expected keys inside the added objects ***/
 if (typeof pokemon === 'object' && Object.keys(pokemon) === ['name', 'height', 'types', 'abilities']) {
 
 pokemonRepository.add(
@@ -146,6 +99,8 @@ pokemonRepository.add(
     abilities: ['Blaze', 'Solar-power']
   }
 );
+
+
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 pokemonRepository.getAll().forEach(function(pokemon) {
   document.write('<ul>');
