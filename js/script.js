@@ -1,4 +1,4 @@
-/*This Array contains the Pokémon Objects(key-value-pairs = properties inside) with the same keys to avoid errors - name of the key in plural, when arrays*/
+/*This Array contains key-value-pairs = properties for pokemon objects inside with the same keys to avoid errors - name of the key in plural, when arrays and is located now in an safe IIFE (all now local variables)*/
 let pokemonSafeList = (function () {
   let pokemonList = [
     {
@@ -78,22 +78,43 @@ pokemonRepository.add(
     abilities: ['Keen-eye', 'Tangled-feet', 'Big-pecks']
   }
 );
-pokemonRepository.getAll();
-console.log(pokemonRepository.getAll());
+pokemonRepository.add(
+  {
+    name: 'Butterfree',
+    height: 1.1,
+    types: ['Bug','Flying'],
+    abilities: ['Compoundeyes', 'Tinted-lens']
+  }
+);
+pokemonRepository.add(
+  {
+    name: 'Charizard',
+    height: 1.7,
+    types: ['Fire','Flying'],
+    abilities: ['Blaze', 'Solar-power']
+  }
+);
 
+
+console.log(pokemonRepository.getAll());
 
 
 
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 pokemonRepository.getAll().forEach(function(pokemon) {
-  if(pokemon.height>=1.8) {
-  document.write(pokemon.name + ":" + " height: " + pokemon.height + "m" + " " + " - Wow, that's a big Pokemon!"); } else {
-  document.write(pokemon.name + ":" + " height: " + pokemon.height + "m" + " " + " - This pokemon is still growing!");
+  document.write('<ul>');
+  document.write('<li>');
+  if (pokemon.height>=1.8) {
+  document.write(`<b>${pokemon.name} (height: ${pokemon.height}m) - "WOW, that's a big pokemon!"</b>`);
+  } else {
+  document.write(`<i>${pokemon.name} (height: ${pokemon.height}m) - "This pokemon is still growing!"</i>`);
   }
-
+  document.write('</li>');
+  document.write('</ul>');
 });
  
- 
+
+  
 
 
 
@@ -129,3 +150,4 @@ console.log(pokemonRepository.getAll()); // []
 pokemonRepository.add({ name: 'Pikachu' });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
 */
+
