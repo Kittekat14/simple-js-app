@@ -51,10 +51,14 @@ let pokemonList = [
 ];
 
 /*for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon*/ 
+document.write('<ul>');
 for (i=0; i<pokemonList.length; i++) {
+  document.write('<li>');
   if (pokemonList[i].height>=1.8) {
-  document.write(`<ul><li><b> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "WOW, that's a big pokemon!" </b></li></ul><br>`);
+  document.write(`<b>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "WOW, that's a big pokemon!"</b>`);
   } else {
-  document.write(`<ul><li><i> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "This pokemon is still growing!" </i></li></ul><br>`);
+  document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "This pokemon is still growing!"</i>`);
   }
+  document.write('</li>');
 }
+document.write('</ul>');
