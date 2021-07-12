@@ -69,7 +69,8 @@ let pokemonRepository = (function () {
     getAll: getAll
   };
 })();
-pokemonRepository.getAll();
+console.log(pokemonRepository.getAll());
+
 pokemonRepository.add(
   {
     name:'Pidgeot', 
@@ -119,19 +120,23 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 
 
 
-/*for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon*/ 
-/*for (i=0; i<pokemonList.length; i++) {
+/******
+--> for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon:
+
+document.write('<ul>');
+for (i=0; i<pokemonList.length; i++) {
+  document.write('<li>');
   if (pokemonList[i].height>=1.8) {
-  document.write(`<ul><li><b> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "WOW, that's a big pokemon!" </li></ul></b><br>`);
+  document.write(`<b>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "WOW, that's a big pokemon!"</b>`);
   } else {
-    document.write(`<ul><li><i> ${pokemonList[i].name} (height: ${pokemonList[i].height}m) <br> - "This pokemon is still growing!" </li></ul></i><br>`)
+  document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "This pokemon is still growing!"</i>`);
   }
+  document.write('</li>');
 }
+************/
+ 
 
-  
-
-/* ****other version of IIFE and getting into the secure function with return:  
-
+/****************other version of IIFE and getting into the secure function with return:  
 
 let pokemonRepository = (function () {
   let pokemonList = []; // empty array
@@ -149,5 +154,6 @@ let pokemonRepository = (function () {
 console.log(pokemonRepository.getAll()); // []
 pokemonRepository.add({ name: 'Pikachu' });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
-*/
+
+******************************/
 
