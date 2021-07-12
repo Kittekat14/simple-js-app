@@ -52,7 +52,7 @@ let pokemonSafeList = (function () {
   ];
 }) ();
 
-
+/*
 let pokemonRepository = (function () {
   let pokemonList = []; //still empty array;
 
@@ -73,7 +73,8 @@ console.log(pokemonRepository.getAll());
 
 
 /***Adding wie add-function new pokemon objects to the empty predefined array***/
-pokemonRepository.add(
+
+/*pokemonRepository.add(
   {
     name:'Pidgeot', 
     height: 1.5, 
@@ -97,10 +98,54 @@ pokemonRepository.add(
     abilities: ['Blaze', 'Solar-power']
   }
 );
-console.log(pokemonRepository.getAll()); // []
-/*pokemonRepository.add({ name: 'Pikachu' });
-console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]*/
+console.log(pokemonRepository.getAll()); */
 
+/*****Adding objects to array + checking if it's the right data type (object) in the function add() */
+let pokemonRepository = (function () {
+  let pokemonList = []; //still empty array;
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+
+/***Adding wie add-function new pokemon objects to the empty predefined array***/
+if (typeof pokemon === 'object' && Object.keys(pokemon) === ['name', 'height', 'types', 'abilities']) {
+
+pokemonRepository.add(
+  {
+    name: 'Pidgeotto',
+    height: 1.1,
+    types: ['Flying', 'Normal'],
+    abilities: ['Keen-eye', 'Tangled-feet', 'Big-pecks']
+  }
+);
+pokemonRepository.add(
+  {
+    name: 'Butterfree',
+    height: 1.1,
+    types: ['Bug','Flying'],
+    abilities: ['Compoundeyes', 'Tinted-lens']
+  }
+);
+pokemonRepository.add(
+  {
+    name: 'Charizard',
+    height: 1.7,
+    types: ['Fire','Flying'],
+    abilities: ['Blaze', 'Solar-power']
+  }
+);
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 pokemonRepository.getAll().forEach(function(pokemon) {
   document.write('<ul>');
@@ -113,24 +158,25 @@ pokemonRepository.getAll().forEach(function(pokemon) {
   document.write('</li>');
   document.write('</ul>');
 });
- 
+}
 
-  
+
 
 
 /******
 --> for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon:
 
 document.write('<ul>');
-for (i=0; i<pokemonList.length; i++) {
-  document.write('<li>');
-  if (pokemonList[i].height>=1.8) {
-  document.write(`<b>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "WOW, that's a big pokemon!"</b>`);
-  } else {
-  document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "This pokemon is still growing!"</i>`);
+  for (i=0; i<pokemonList.length; i++) {
+    document.write('<li>');
+    if (pokemonList[i].height>=1.8) {
+    document.write(`<b>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "WOW, that's a big pokemon!"</b>`);
+    } else {
+    document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "This pokemon is still growing!"</i>`);
+    }
+    document.write('</li>');
   }
-  document.write('</li>');
-}
+document.write('</ul>');
 ************/
  
 
@@ -154,4 +200,3 @@ pokemonRepository.add({ name: 'Pikachu' });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
 
 ******************************/
-
