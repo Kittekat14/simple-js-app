@@ -71,6 +71,8 @@ let pokemonRepository = (function () {
 })();
 console.log(pokemonRepository.getAll());
 
+
+/***Adding wie add-function new pokemon objects to the empty predefined array***/
 pokemonRepository.add(
   {
     name:'Pidgeot', 
@@ -95,11 +97,9 @@ pokemonRepository.add(
     abilities: ['Blaze', 'Solar-power']
   }
 );
-
-
-console.log(pokemonRepository.getAll());
-
-
+console.log(pokemonRepository.getAll()); // []
+/*pokemonRepository.add({ name: 'Pikachu' });
+console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]*/
 
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 pokemonRepository.getAll().forEach(function(pokemon) {
@@ -116,8 +116,6 @@ pokemonRepository.getAll().forEach(function(pokemon) {
  
 
   
-
-
 
 
 /******
