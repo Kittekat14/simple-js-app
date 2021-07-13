@@ -69,10 +69,9 @@ let pokemonRepository = (function () {
     getAll: getAll
   };
 })();
-console.log(pokemonRepository.getAll());
+console.log(pokemonRepository.getAll()); // []
 
-
-/***Adding wie add-function new pokemon objects to the empty predefined array***/
+/***Adding with add-Function new pokemon objects to the empty predefined array***/
 pokemonRepository.add(
   {
     name:'Pidgeot', 
@@ -97,13 +96,16 @@ pokemonRepository.add(
     abilities: ['Blaze', 'Solar-power']
   }
 );
-console.log(pokemonRepository.getAll()); // []
+//console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
 /*pokemonRepository.add({ name: 'Pikachu' });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]*/
 
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
+
+document.write('<ul>');
+
 pokemonRepository.getAll().forEach(function(pokemon) {
-  document.write('<ul>');
+  
   document.write('<li>');
   if (pokemon.height>=1.8) {
   document.write(`<b>${pokemon.name} (height: ${pokemon.height}m) - "WOW, that's a big pokemon!"</b>`);
@@ -111,8 +113,10 @@ pokemonRepository.getAll().forEach(function(pokemon) {
   document.write(`<i>${pokemon.name} (height: ${pokemon.height}m) - "This pokemon is still growing!"</i>`);
   }
   document.write('</li>');
-  document.write('</ul>');
+  
 });
+
+document.write('</ul>');
  
 
   
