@@ -1,4 +1,4 @@
-/*This Array contains key-value-pairs = properties for pokemon objects inside with the same keys to avoid errors - name of the key in plural, when arrays and is located now in an safe IIFE (all now local variables)*/
+/*This Array contains key-value-pairs = properties for pokemon objects inside an array with the same keys to avoid errors - name of the key in plural, when array after that + is now located in an safe IIFE (to never be invoked later)*/
 let pokemonSafeList = (function () {
   let pokemonList = [
     {
@@ -53,11 +53,15 @@ let pokemonSafeList = (function () {
 }) ();
 
 
+/**Declaring new let pokemonRepository (= IIFE) + functions 'add' and 'getAll' inside to call them later over 'return path' with actual arguments**/
+/*** Only executing code if it's the right data type and the expected keys inside the added objects */
 let pokemonRepository = (function () {
   let pokemonList = []; //still empty array;
 
   function add(pokemon) {
+    if (typeof pokemon === 'object' && Object.keys(pokemon) === ['name', 'height', 'types', 'abilities']) {
     pokemonList.push(pokemon);
+    }
   }
 
   function getAll() {
@@ -69,14 +73,14 @@ let pokemonRepository = (function () {
     getAll: getAll
   };
 })();
-console.log(pokemonRepository.getAll()); // []
+
 
 /***Adding with add-Function new pokemon objects to the empty predefined array***/
 pokemonRepository.add(
   {
-    name:'Pidgeot', 
-    height: 1.5, 
-    types: ['Flying', 'Normal'], 
+    name: 'Pidgeotto',
+    height: 1.1,
+    types: ['Flying', 'Normal'],
     abilities: ['Keen-eye', 'Tangled-feet', 'Big-pecks']
   }
 );
@@ -96,9 +100,7 @@ pokemonRepository.add(
     abilities: ['Blaze', 'Solar-power']
   }
 );
-//console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
-/*pokemonRepository.add({ name: 'Pikachu' });
-console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]*/
+
 
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 
@@ -120,42 +122,4 @@ document.write('</ul>');
  
 
   
-
-
-/******
---> for loop through the array of pokemon items: if the height of a pokemon is bigger than or equal to 2, it is considered to be a big pokemon:
-
-document.write('<ul>');
-for (i=0; i<pokemonList.length; i++) {
-  document.write('<li>');
-  if (pokemonList[i].height>=1.8) {
-  document.write(`<b>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "WOW, that's a big pokemon!"</b>`);
-  } else {
-  document.write(`<i>${pokemonList[i].name} (height: ${pokemonList[i].height}m) - "This pokemon is still growing!"</i>`);
-  }
-  document.write('</li>');
-}
-************/
- 
-
-/****************other version of IIFE and getting into the secure function with return:  
-
-let pokemonRepository = (function () {
-  let pokemonList = []; // empty array
-
-  return {
-    add: function(pokemon) {
-      pokemonList.push(pokemon);
-    },
-    getAll: function() {
-      return pokemonList;
-    }
-  };
-})();
-
-console.log(pokemonRepository.getAll()); // []
-pokemonRepository.add({ name: 'Pikachu' });
-console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
-
-******************************/
 
