@@ -1,4 +1,4 @@
-/*This Array contains key-value-pairs = properties for pokemon objects inside an array with the same keys to avoid errors - name of the key in plural, when array after that + is now located in an safe IIFE (to never be invoked later)*/
+/*This Array contains key-value-pairs = properties for pokemon objects with the same keys to avoid errors - name of the key in plural, when array coming after that + is now located in an safe IIFE (to never be invoked later)*/
 let pokemonSafeList = (function () {
   let pokemonList = [
     {
@@ -53,7 +53,7 @@ let pokemonSafeList = (function () {
 }) ();
 
 
-/**Declaring new let pokemonRepository (= IIFE) + functions 'add' and 'getAll' inside to call them later over 'return path' with actual arguments**/
+/**Declaring new let pokemonRepository (= IIFE) with functions 'add' and 'getAll' inside to call them later over 'return path' with actual arguments**/
 /*** Only executing code if it's the right data type and the expected keys inside the added objects */
 let pokemonRepository = (function () {
   let pokemonList = []; //still empty array;
