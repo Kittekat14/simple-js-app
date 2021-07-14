@@ -17,15 +17,15 @@ let pokemonRepository = (function() {
   }
 
   function addListItem(pokemon) {
-    let unorderedList = document.querySelector('ul');
+    let unorderedList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('pokemon-button');
-    
-    unorderedList.appendChild('listItem');
+    listItem.appendChild(button);
+    unorderedList.appendChild(listItem);
 
-    listItem.appendChild('button');
+    
     
   }
 
