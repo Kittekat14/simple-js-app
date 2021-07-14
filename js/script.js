@@ -5,23 +5,28 @@ let pokemonRepository = (function() {
 
   let pokemonList = []; //still empty array;
 
-  function addListItem(pokemon) {
-    let unorderedList = document.querySelector('.pokemon-list');
-    let listItem = document.createElement('li');
-    let button = document.createElement('button');
-    button.innerText = pokemon.name;
-    button.classList.add('pokemon-button');
-    listItem.appendChild('button');
-    unorderedList.appendChild(listItem);
-  }
   function add(pokemon) {
     if(typeof pokemon === 'object' && Object.keys(pokemon).includes('name') && Object.keys(pokemon).includes('height') && Object.keys(pokemon).includes('types') && Object.keys(pokemon).includes('abilities')) {
     pokemonList.push(pokemon)} else {
     document.write(`This is no pokemon object. `);
     }
   }
+
   function getAll() {
     return pokemonList;
+  }
+
+  function addListItem(pokemon) {
+    let unorderedList = document.querySelector('ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemon-button');
+    
+    unorderedList.appendChild('listItem');
+
+    listItem.appendChild('button');
+    
   }
 
   return {
