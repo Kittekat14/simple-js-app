@@ -46,3 +46,9 @@ li {
   background-color: #0af8a980;
   padding: 10px;
 }
+.pokemon-button {
+  padding: 4px 6px;
+  border-radius: 6px;
+  background-color: lightgrey;
+
+}

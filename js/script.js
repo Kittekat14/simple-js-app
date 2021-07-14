@@ -5,6 +5,15 @@ let pokemonRepository = (function() {
 
   let pokemonList = []; //still empty array;
 
+  function addListItem(pokemon) {
+    let unorderedList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemon-button');
+    listItem.appendChild('button');
+    unorderedList.appendChild(listItem);
+  }
   function add(pokemon) {
     if(typeof pokemon === 'object' && Object.keys(pokemon).includes('name') && Object.keys(pokemon).includes('height') && Object.keys(pokemon).includes('types') && Object.keys(pokemon).includes('abilities')) {
     pokemonList.push(pokemon)} else {
@@ -17,7 +26,8 @@ let pokemonRepository = (function() {
 
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 
 })();
@@ -51,24 +61,14 @@ pokemonRepository.add(
 
 console.log(pokemonRepository.getAll());
 
+
+
+
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 
-document.write('<ul>');
+
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-  
-  document.write('<li>');
-  if (pokemon.height>=1.8) {
-  document.write(`<b>${pokemon.name} (height: ${pokemon.height}m) - "WOW, that's a big pokemon!"</b>`);
-  } else {
-  document.write(`<i>${pokemon.name} (height: ${pokemon.height}m) - "This pokemon is still growing!"</i>`);
-  }
-  document.write('</li>');
-  
+  pokemonRepository.addListItem(pokemon);
+
 });
-
-document.write('</ul>');
- 
-
-  
-
