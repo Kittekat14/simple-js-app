@@ -1,69 +1,16 @@
-/*This Array contains key-value-pairs = properties for pokemon objects with the same keys to avoid errors - name of the key in plural, when array coming after that + is now located in an safe IIFE (to never be invoked later)*/
-let pokemonSafeList = (function () {
-  let pokemonList = [
-    {
-      name: 'Bellsprout', 
-      height: 0.7,
-      types: ['Grass', 'Poison'],
-      abilities: ['Chlorophyll','Gluttony']
-    },
-    {
-      name: 'Geodude',
-      height: 0.4,
-      types: ['Rock', 'Ground'],
-      abilities: ['Sturdy', 'Sand-veil', 'Rock-head']
-    },
-    {
-      name: 'Bulbasaur',
-      height: 0.7,
-      types: ['Grass', 'Poison'],
-      abilities: ['Chlorophyll', 'Overgrow']
-    },
-    {
-      name: 'Dewgong',
-      height: 1.7,
-      types: ['Ice', 'Water'],
-      abilities: ['Thick-fat', 'Hydration', 'Ice-body']
-    },
-    {
-      name: 'Slowpoke',
-      height: 1.2,
-      types: ['Psychic', 'Water'],
-      abilities: ['Own-tempo', 'Oblivious', 'Regenerator']
-    },
-    {
-      name: 'Paras',
-      height: 0.3,
-      types: ['Grass', 'Bug'],
-      abilities: ['Damp', 'Effect-spore', 'Dry-skin']
-    },
-    {
-      name: 'Rhydon',
-      height: 1.9,
-      types: ['Rock', 'Ground'],
-      abilities: ['Lightningrod', 'Rock-head', 'Reckless']
-    },
-    {
-      name: 'Doduo',
-      height: 1.4,
-      types: ['Flying', 'Normal'],
-      abilities: ['Early-bird', 'Run-away', 'Tangled-feet']
-    }
-  ];
-}) ();
+/***Declaring new let pokemonRepository (= IIFE) with functions 'add' and 'getAll' inside to call them later over 'return path' with actual arguments***/
+/**Only executing code if it's the right data type and the expected keys inside the added objects**/
 
+let pokemonRepository = (function() {
 
-/**Declaring new let pokemonRepository (= IIFE) with functions 'add' and 'getAll' inside to call them later over 'return path' with actual arguments**/
-/*** Only executing code if it's the right data type and the expected keys inside the added objects */
-let pokemonRepository = (function () {
   let pokemonList = []; //still empty array;
 
   function add(pokemon) {
-    if (typeof pokemon === 'object' && Object.keys(pokemon) === ['name', 'height', 'types', 'abilities']) {
-    pokemonList.push(pokemon);
+    if(typeof pokemon === 'object' && Object.keys(pokemon).includes('name') && Object.keys(pokemon).includes('height') && Object.keys(pokemon).includes('types') && Object.keys(pokemon).includes('abilities')) {
+    pokemonList.push(pokemon)} else {
+    document.write(`This is no pokemon object. `);
     }
   }
-
   function getAll() {
     return pokemonList;
   }
@@ -72,16 +19,17 @@ let pokemonRepository = (function () {
     add: add,
     getAll: getAll
   };
+
 })();
 
-
 /***Adding with add-Function new pokemon objects to the empty predefined array***/
+
 pokemonRepository.add(
   {
     name: 'Pidgeotto',
     height: 1.1,
     types: ['Flying', 'Normal'],
-    abilities: ['Keen-eye', 'Tangled-feet', 'Big-pecks']
+    abilities: ['Keen-eye', 'Tangled-feet']
   }
 );
 pokemonRepository.add(
@@ -101,6 +49,7 @@ pokemonRepository.add(
   }
 );
 
+console.log(pokemonRepository.getAll());
 
 /* forEach-Loop through the pokemonRepository Array : over the getAll()-function, we get to return the whole pokemonList*/ 
 
