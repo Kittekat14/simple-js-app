@@ -8,7 +8,7 @@ let pokemonRepository = (function() {
   function add(pokemon) {
     if(typeof pokemon === 'object' && Object.keys(pokemon).includes('name') && Object.keys(pokemon).includes('height') && Object.keys(pokemon).includes('types') && Object.keys(pokemon).includes('abilities')) {
     pokemonList.push(pokemon)} else {
-    document.write(`This is no pokemon object. `);
+    console.log(`This is no pokemon object. `);
     }
   }
 
