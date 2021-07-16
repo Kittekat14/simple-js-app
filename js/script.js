@@ -4,13 +4,17 @@
 let pokemonRepository = (function() {
 
   let pokemonList = []; //still empty array;
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   function add(pokemon) {
-    if(typeof pokemon === 'object' && Object.keys(pokemon).includes('name') && Object.keys(pokemon).includes('detailsURL')) {
-    pokemonList.push(pokemon)} else {
-    console.log(`This is no pokemon object. `);
-    }
+    // if
+    // (typeof pokemon === 'object' 
+    // && Object.keys(pokemon).includes('name') 
+    // && Object.keys(pokemon).includes('detailsURL')) {
+    pokemonList.push(pokemon)
+    //} else {
+    // console.log(`This is no pokemon object. `);
+    // }
   }
 
   function getAll() {
@@ -34,7 +38,7 @@ let pokemonRepository = (function() {
   function loadList () {
     return fetch(apiUrl).then(function (response) {
       return response.json();
-    }).then(function (json) {
+    }).then(function(json) {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -47,15 +51,6 @@ let pokemonRepository = (function() {
       console.error(e);
     })
   }
-
-  pokemonRepository.loadList().then(function() {
-    // Now the data is loaded!
-    pokemonRepository.getAll().forEach(function(pokemon){
-      pokemonRepository.addListItem(pokemon);
-    });
-  });
-
-
 
   function loadDetails(item) {
     let url = item.detailsUrl;
@@ -71,16 +66,16 @@ let pokemonRepository = (function() {
     });
   }
 
-  function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function () {
-    console.log(pokemon);
-  });
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function () {
+    console.log(item);
+    });
   }
 
   return {
     add: add,
     getAll: getAll,
-    //addListItem: addListItem,
+    addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails
