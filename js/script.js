@@ -35,7 +35,7 @@ let pokemonRepository = (function() {
     });
   }
 
-  function loadList () {
+  setTimeout(function loadList () {
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function(json) {
@@ -49,9 +49,9 @@ let pokemonRepository = (function() {
     }).catch(function (e) {
       console.error(e);
     })
-  }
+  }, 3000);
 
-  function loadDetails(item) {
+  setTimeout(function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
@@ -63,13 +63,24 @@ let pokemonRepository = (function() {
     }).catch(function (e) {
       console.error(e);
     });
-  }
+  }, 5000);
 
-  function showDetails(item) {
+  setTimeout(function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
     console.log(item);
     });
-  }
+  }, 7000);
+
+  
+  /*let pageLoaded = document.querySelector('.pokemon-list');
+  
+  function showLoadingMessage () {
+    let loadMessage = 'The page is loading...';
+  }  
+
+  function hideLoadingMessage () {
+    let hideMessage = ' ';
+  }*/
 
   return {
     add: add,

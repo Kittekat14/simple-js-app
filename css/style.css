@@ -62,8 +62,12 @@ li {
   border: currentColor;
   background-color: lightgreen;
 }
-
-
+.hide-message {
+  display: none;
+}
+.show-message {
+  display: block;
+}
 /****Media Queries****/
 @media all and (max-width: 980px) {
   .pokemon-button {
