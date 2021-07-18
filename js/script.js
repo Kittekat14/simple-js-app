@@ -6,6 +6,18 @@ let pokemonRepository = (function() {
   let pokemonList = []; //still empty array;
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
+  let loadMessage = 'The page is loading...';
+
+  function showLoadingMessage() {
+    document.querySelector('.pokemon-list').innerHTML = loadMessage;
+  }  
+  
+  function hideLoadingMessage() {
+    let elementToRemove = document.querySelector('.pokemon-list').innerHTML;
+    let parentElement = document.querySelector('main');
+    elementToRemove.parentElement.removeChild(elementToRemove);
+  }
+
   function add(pokemon) {
     // if
     // (typeof pokemon === 'object' 
@@ -35,27 +47,32 @@ let pokemonRepository = (function() {
     });
   }
 
-  setTimeout(function loadList () {
-    return fetch(apiUrl).then(function (response) {
+  function loadList () {
+    showLoadingMessage();
+    return fetch(apiUrl).then(function(response) {
+      
       return response.json();
     }).then(function(json) {
-      json.results.forEach(function (item) {
+      json.results.forEach(function(item) {
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
         add(pokemon);
+        hideLoadingMessage();
       });
     }).catch(function (e) {
       console.error(e);
     })
-  }, 3000);
-
-  setTimeout(function loadDetails(item) {
+  }
+  
+  function loadDetails(item) {
+    showLoadingMessage();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+      hideLoadingMessage();
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
@@ -63,24 +80,29 @@ let pokemonRepository = (function() {
     }).catch(function (e) {
       console.error(e);
     });
-  }, 5000);
+  }
 
-  setTimeout(function showDetails(item) {
+
+  function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
     console.log(item);
     });
-  }, 7000);
+  }
 
   
-  /*let pageLoaded = document.querySelector('.pokemon-list');
+  /* 
   
-  function showLoadingMessage () {
-    let loadMessage = 'The page is loading...';
+  let loadMessage = 'The page is loading...';
+
+  function showLoadingMessage() {
+    document.querySelector('.pokemon-list').innerHTML = loadMessage;
   }  
 
-  function hideLoadingMessage () {
-    let hideMessage = ' ';
-  }*/
+  function hideLoadingMessage() {
+    document.querySelector('.loading-message').removeChild(loadMessage);
+  }
+  
+  */
 
   return {
     add: add,
