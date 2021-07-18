@@ -7,10 +7,9 @@ let pokemonRepository = (function() {
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   function add(pokemon) {
-    if
-    (typeof pokemon === 'object' 
-    && Object.keys(pokemon).includes('name') 
-    && Object.keys(pokemon).includes('detailsUrl')) {
+    if (typeof pokemon === 'object' && 
+    Object.keys(pokemon).includes('name') && 
+    Object.keys(pokemon).includes('detailsUrl')) {
      pokemonList.push(pokemon)
     } else {
      console.log('This is no pokemon object. ');
@@ -66,7 +65,7 @@ let pokemonRepository = (function() {
   }
 
   function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
+    pokemonRepository.loadDetails(item).then(function() {
     console.log(item);
     });
   }
