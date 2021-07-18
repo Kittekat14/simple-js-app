@@ -7,14 +7,14 @@ let pokemonRepository = (function() {
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   function add(pokemon) {
-    // if
-    // (typeof pokemon === 'object' 
-    // && Object.keys(pokemon).includes('name') 
-    // && Object.keys(pokemon).includes('detailsURL')) {
-    pokemonList.push(pokemon)
-    //} else {
-    // console.log(`This is no pokemon object. `);
-    // }
+    if
+    (typeof pokemon === 'object' 
+    && Object.keys(pokemon).includes('name') 
+    && Object.keys(pokemon).includes('detailsUrl')) {
+     pokemonList.push(pokemon)
+    } else {
+     console.log('This is no pokemon object. ');
+    }
   }
 
   function getAll() {
@@ -35,32 +35,32 @@ let pokemonRepository = (function() {
     });
   }
 
-  function loadList () {
-    return fetch(apiUrl).then(function (response) {
+  function loadList() {
+    return fetch(apiUrl).then(function(response) {
       return response.json();
     }).then(function(json) {
-      json.results.forEach(function (item) {
+      json.results.forEach(function(item) {
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
         add(pokemon);
       });
-    }).catch(function (e) {
+    }).catch(function(e) {
       console.error(e);
     })
   }
 
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
+    return fetch(url).then(function(response) {
       return response.json();
-    }).then(function (details) {
+    }).then(function(details) {
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
-    }).catch(function (e) {
+    }).catch(function(e) {
       console.error(e);
     });
   }
