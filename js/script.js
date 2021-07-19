@@ -2,9 +2,10 @@
 /**Only executing code if it's the right data type and the expected keys inside the added objects**/
 
 let pokemonRepository = (function() {
-
-	let pokemonList = []; //still empty array;
+  let modalContainer = document.querySelector('#modal-container');
+	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+
 
 	function add(pokemon) {
 		if (typeof pokemon === 'object' &&
@@ -81,11 +82,59 @@ let pokemonRepository = (function() {
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-    console.log(item);
+      showModal('Pokemon Name', 'height + img!');
     });
   }
 
   
+  function showModal(title, text) {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.add('is-visible');
+
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+    
+    // Add the new modal content
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+    
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = title;
+    
+    let contentElement = document.createElement('p');
+    contentElement.innerText = text;
+    
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+    modalContainer.classList.add('is-visible');
+  }
+
+  function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
+  }
+
+
+  //Hiding Modal with ESC key:
+  window.addEventListener('keydown', (e) => {
+    let modalContainer = document.querySelector('#modal-container');
+    if (e.key === 'Escape' && 
+    modalContainer.classList.contains('is-visible')) {
+      hideModal();  
+    }
+  });
+  //Hiding Modal with clicking outside the Modal:
+  modalContainer.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
   return {
     add: add,
     getAll: getAll,
