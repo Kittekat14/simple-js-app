@@ -62,7 +62,7 @@ let pokemonRepository = (function() {
   }
   
   function loadDetails(item) {
-    showLoadingMessage();
+    setTimeout(showLoadingMessage(), 3000);
     let url = item.detailsUrl;
     return fetch(url).then(function(response) {
       return response.json();
