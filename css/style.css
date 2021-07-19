@@ -62,8 +62,16 @@ li {
   border: currentColor;
   background-color: lightgreen;
 }
-
-
+.message {
+  text-align: center;
+  font-weight: 700;
+}
+.hiding-message {
+  display: none;
+}
+.loading-message {
+  display: block;
+}
 /****Media Queries****/
 @media all and (max-width: 980px) {
   .pokemon-button {
