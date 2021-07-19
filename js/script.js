@@ -6,16 +6,14 @@ let pokemonRepository = (function() {
   let pokemonList = []; //still empty array;
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
-  let loadMessage = 'The page is loading...';
 
   function showLoadingMessage() {
-    document.querySelector('.pokemon-list').innerHTML = loadMessage;
+    document.querySelector('.message').classList.add('loading-message');
+    document.querySelector('.message').classList.remove('hiding-message');
   }  
-  
   function hideLoadingMessage() {
-    let elementToRemove = document.querySelector('.pokemon-list').innerHTML;
-    let parentElement = document.querySelector('main');
-    elementToRemove.parentElement.removeChild(elementToRemove);
+    document.querySelector('.message').classList.add('hiding-message');
+    document.querySelector('.message').classList.remove('loading-message');
   }
 
   function add(pokemon) {
@@ -33,7 +31,6 @@ let pokemonRepository = (function() {
     return pokemonList;
   }
 
-  
   function addListItem(pokemon) {
     let unorderedList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
@@ -50,7 +47,6 @@ let pokemonRepository = (function() {
   function loadList () {
     showLoadingMessage();
     return fetch(apiUrl).then(function(response) {
-      
       return response.json();
     }).then(function(json) {
       json.results.forEach(function(item) {
@@ -58,10 +54,11 @@ let pokemonRepository = (function() {
           name: item.name,
           detailsUrl: item.url
         };
-        add(pokemon);
         hideLoadingMessage();
+        add(pokemon);
       });
-    }).catch(function (e) {
+    }).catch(function(e) {
+      hideLoadingMessage();
       console.error(e);
     })
   }
@@ -69,15 +66,16 @@ let pokemonRepository = (function() {
   function loadDetails(item) {
     showLoadingMessage();
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
+    return fetch(url).then(function(response) {
       return response.json();
-    }).then(function (details) {
+    }).then(function(details) {
       hideLoadingMessage();
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
-    }).catch(function (e) {
+    }).catch(function(e) {
+      hideLoadingMessage();
       console.error(e);
     });
   }
@@ -114,6 +112,7 @@ let pokemonRepository = (function() {
   };
 
 })();
+
 
 pokemonRepository.loadList().then(function() {
   // Now the data is loaded!

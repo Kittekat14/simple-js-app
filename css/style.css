@@ -62,10 +62,14 @@ li {
   border: currentColor;
   background-color: lightgreen;
 }
-.hide-message {
+.message {
+  text-align: center;
+  font-weight: 700;
+}
+.hiding-message {
   display: none;
 }
-.show-message {
+.loading-message {
   display: block;
 }
 /****Media Queries****/
