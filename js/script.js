@@ -87,12 +87,12 @@ let pokemonRepository = (function() {
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      showModal('Name: ' + item.name.toUpperCase(), 'Types: ' + item.types, 'Abilities: ' + item.abilities, item.imageUrl);
+      showModal('Name: ' + item.name.toUpperCase(), 'Height: ' + item.height, 'Types: ' + item.types, 'Abilities: ' + item.abilities, item.imageUrl);
     });
   }
 
   
-  function showModal(name, types, abilities, image) {
+  function showModal(name, height, types, abilities, image) {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.innerHTML = '';
     let modal = document.createElement('div');
@@ -106,9 +106,12 @@ let pokemonRepository = (function() {
     
     let titleElement = document.createElement('h1');
     titleElement.innerText = name;
+
+    let contentElement1 = document.createElement('p');
+    contentElement1.innerText = height;
     
-    let contentElement = document.createElement('p');
-    contentElement.innerText = types;
+    let contentElement2 = document.createElement('p');
+    contentElement2.innerText = types;
 
     let abilitiesElement = document.createElement('div');
     abilitiesElement.innerText = abilities;
@@ -119,7 +122,8 @@ let pokemonRepository = (function() {
     
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
+    modal.appendChild(contentElement1);
+    modal.appendChild(contentElement2);
     modal.appendChild(imageElement);
     modal.appendChild(abilitiesElement);
     modalContainer.appendChild(modal);
