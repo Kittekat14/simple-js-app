@@ -32,31 +32,33 @@ header {
   background-color: #8afcd698;
   color: #fcd502;
   -webkit-text-stroke: 2px #1e5dbc;
-  padding: 20px 0;
+  padding: 20px 5px;
 }
 ul.pokemon-list {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  list-style: none;
+  align-items: center;
+  justify-content: flex-start;
   text-align: center;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 li {
   flex: 0 0 50px; /*wenn flex-direction: column; dann ist hier Höhe gemeint*/
-  margin: 10px 0;
-  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
 }
 .pokemon-button {
   font-size: 22px;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 2px;
-  text-align: center;
+  width: 750px;
   color: #1b3468;
-  width: 600px;
-  padding: 40px 400px;
+  text-align: center;
+  margin: 10px 100px;
+  padding: 40px;
   border: 1px dotted grey;
   border-radius: 4px;
   background-color: #0af8a980;
@@ -84,8 +86,9 @@ li {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
     color: #1b3468;
+    width: 500px;
     padding: 40px 150px;
-    margin: 0 auto;
+    margin: 10px auto;
     border: 1px dotted grey;
     border-radius: 4px;
     background-color: #0af8a980;
@@ -102,8 +105,9 @@ li {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
     color: #1b3468;
+    width: 300px;
     padding: 30px 100px;
-    margin: 0 auto;
+    margin: 10px auto;
     border: 1px dotted grey;
     border-radius: 4px;
     background-color: #0af8a980;
