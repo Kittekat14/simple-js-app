@@ -72,7 +72,10 @@ let pokemonRepository = (function() {
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+      item.types = details.types
+      .map(type => type.type.name)
+      .join(' ');
+      
     }).catch(function(e) {
       hideLoadingMessage();
       console.error(e);
@@ -82,12 +85,12 @@ let pokemonRepository = (function() {
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      showModal(item.name, item.imageUrl);
+      showModal(item.name, item.types, item.imageUrl);
     });
   }
 
   
-  function showModal(title, text) {
+  function showModal(title, height, image) {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.innerHTML = '';
     let modal = document.createElement('div');
@@ -103,11 +106,15 @@ let pokemonRepository = (function() {
     titleElement.innerText = title;
     
     let contentElement = document.createElement('p');
-    contentElement.innerText = text;
+    contentElement.innerText = height;
+
+    let imageElement = document.createElement('img');
+    imageElement.setAttribute('src', image);
     
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
+    modal.appendChild(imageElement);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
