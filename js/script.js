@@ -82,7 +82,7 @@ let pokemonRepository = (function() {
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      showModal(item.name, item.height, item.imageUrl);
+      showModal(item.name, item.imageUrl);
     });
   }
 
@@ -105,8 +105,6 @@ let pokemonRepository = (function() {
     let contentElement = document.createElement('p');
     contentElement.innerText = text;
     
-    let imageElement = document.createElement('img');
-    imageElement.setAttribute('src', )
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
