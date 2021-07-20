@@ -98,7 +98,7 @@ let pokemonRepository = (function() {
     let modal = document.createElement('div');
     modal.classList.add('modal');
     
-    // Add the new modal content
+  // Add the new modal content
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
@@ -130,7 +130,7 @@ let pokemonRepository = (function() {
 
     modalContainer.classList.add('is-visible');
   }
-
+  //Hide Modal function
   function hideModal() {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
