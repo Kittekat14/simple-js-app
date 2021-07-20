@@ -112,9 +112,10 @@ li {
 
 /*Modal Styling*/
 
-#modal-container {
+#modal-container.is-visible {
   position: fixed;
   box-sizing: border-box;
+  padding: 20px;
   top: 0;
   left: 0;
   width: 100%;
@@ -152,18 +153,24 @@ li {
   text-decoration: underline;
   cursor: pointer;
 }
+
 .modal h1 {
-  margin-top: 0;
+  text-align: center;
 }
 
 .modal p {
-  margin-bottom: 10px;
+  text-align: center;
 }
-
+.modal div {
+  margin-bottom: 20px;
+}
+.modal img {
+  width: 150px;
+}
 #modal-container {
   display: none;
 }
-
 #modal-container.is-visible {
   display: block;
 }
+

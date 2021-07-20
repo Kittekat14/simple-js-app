@@ -74,8 +74,10 @@ let pokemonRepository = (function() {
       item.height = details.height;
       item.types = details.types
       .map(type => type.type.name)
-      .join(' ');
-      
+      .join(', ');
+      item.abilities = details.abilities
+      .map(ability => ability.ability.name)
+      .join(', ');
     }).catch(function(e) {
       hideLoadingMessage();
       console.error(e);
@@ -85,12 +87,12 @@ let pokemonRepository = (function() {
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      showModal(item.name, item.types, item.imageUrl);
+      showModal('Name: ' + item.name.toUpperCase(), 'Types: ' + item.types, 'Abilities: ' + item.abilities, item.imageUrl);
     });
   }
 
   
-  function showModal(title, height, image) {
+  function showModal(name, types, abilities, image) {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.innerHTML = '';
     let modal = document.createElement('div');
@@ -103,18 +105,23 @@ let pokemonRepository = (function() {
     closeButtonElement.addEventListener('click', hideModal);
     
     let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
+    titleElement.innerText = name;
     
     let contentElement = document.createElement('p');
-    contentElement.innerText = height;
+    contentElement.innerText = types;
+
+    let abilitiesElement = document.createElement('div');
+    abilitiesElement.innerText = abilities;
 
     let imageElement = document.createElement('img');
     imageElement.setAttribute('src', image);
+    imageElement.setAttribute('alt', 'pokemon-image');
     
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
     modal.appendChild(imageElement);
+    modal.appendChild(abilitiesElement);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
