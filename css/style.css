@@ -68,6 +68,7 @@ li {
 .pokemon-button:hover {
   border: currentColor;
   background-color: lightgreen;
+  color: #043626;
 }
 .message {
   text-align: center;
