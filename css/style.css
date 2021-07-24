@@ -101,6 +101,9 @@ li {
   }
 }
 @media all and (max-width: 500px) {
+  img[alt="pokemon-logo"] {
+    width: 60%;
+  }
   .pokemon-button {
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
@@ -121,7 +124,7 @@ li {
 }
 
 /*Modal Styling*/
-
+/*
 #modal-container.is-visible {
   position: fixed;
   box-sizing: border-box;
@@ -132,13 +135,13 @@ li {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   
-  /* to show it above other content */
+  /* to show it above other content 
   z-index: 999; 
   
-  /* to allow scrolling if the screen is not high enough*/
+  /* to allow scrolling if the screen is not high enough
   overflow: auto; 
   
-  /* this is used to center the modal */
+  /* this is used to center the modal 
   display: grid;
   text-align: center;
 }
@@ -183,4 +186,5 @@ li {
 #modal-container.is-visible {
   display: block;
 }
+*/
 
