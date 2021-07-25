@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 html, body {
   background: linear-gradient(to bottom, #4aba6e, #13a98c) center fixed;
@@ -9,7 +11,9 @@ html, body {
   font-size: 18px;
   line-height: 1.6;
 }
-
+img[alt="pokemon-logo"] {
+  width: 85%;
+}
 ul.pokemon-list {
   display: flex;
   flex-direction: column;
@@ -128,14 +132,17 @@ img[alt="pokemon bulbasaur toy"] {
   }
 }
 @media all and (max-width: 500px) {
+  img[alt="pokemon-logo"] {
+    width: 75%;
+  }
   .card-title {
-    color: #0db3f5;
+    color: #0db3f5cc;
     font-size: 24px;
     -webkit-text-stroke: unset;
   }
   .card-text {
     font-size: 20px;
-    color: gold;
+    color: #ffd700cc;
     -webkit-text-stroke: unset;
   }
   .pokemon-button {
