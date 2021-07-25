@@ -26,14 +26,14 @@ li {
   text-align: center;
 }
 
-
 .card-title {
   color: #006a78;
   -webkit-text-stroke: 3px #002a3a;
-  font-size: 36px;
+  font-size: 45px;
+  font-weight: bold;
 }
 .card-text {
-  font-size: 30px;
+  font-size: 35px;
   color: gold;
   -webkit-text-stroke: 2px #1e5dbc;
 }
@@ -130,11 +130,11 @@ img[alt="pokemon bulbasaur toy"] {
 @media all and (max-width: 500px) {
   .card-title {
     color: #0db3f5;
-    font-size: 22px;
+    font-size: 24px;
     -webkit-text-stroke: unset;
   }
   .card-text {
-    font-size: 16px;
+    font-size: 20px;
     color: gold;
     -webkit-text-stroke: unset;
   }
