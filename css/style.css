@@ -10,10 +10,24 @@ html, body {
   font-family: Noto Sans, Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
+
 img[alt="pokemon-logo"] {
   width: 85%;
 }
+
+.nav-link {
+  color: rgb(14, 80, 14); 
+}
+.nav-link.disabled {
+  color: #006a78 !important;
+}
+.btn-success {
+  background-color: rgb(14, 80, 14) !important;
+}
+
 ul.pokemon-list {
   display: flex;
   flex-direction: column;
@@ -49,6 +63,8 @@ li {
 }
 .container-fluid {
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 img[alt="pokemon bulbasaur toy"] {
   position: relative;
@@ -98,7 +114,6 @@ img[alt="pokemon bulbasaur toy"] {
   position: fixed;
   box-sizing: border-box;
   top: 0;
-  left: 0;
   text-align: center;
   overflow: auto;
   padding: 20px;
