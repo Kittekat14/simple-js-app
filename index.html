@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="img/poke_icon.ico">
   <title>Pokédex</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
@@ -16,35 +13,57 @@
 
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-sm navbar-dark">
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#"><img src="img/logo.svg" alt="pokemon-logo"></a>
-      <button class="navbar-toggler bg-dark mt-2 mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Pokédex<span class="sr-only">(current)</span></a>
+          <ul class="navbar-nav nav-pills nav-fill" style="font-size: 22px; font-weight: bold">
+            <li class="nav-item p-3">
+              <a class="nav-link active" href="#">Pokédex<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item dropdown p-3">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" >About</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Water Pokemon</a>
+                <a class="dropdown-item" href="#">Grass Pokemon</a>
+                <a class="dropdown-item" href="#">Fire Pokemon</a>
+                <a class="dropdown-item" href="#">Flying Pokemon</a>
+                <a class="dropdown-item" href="#">Bug Pokemon</a>
+                <a class="dropdown-item" href="#">Poison Pokemon</a>
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Search</a>
-            </li>
-            <li class="nav-item">
+            <li class="nav-item p-3">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Blog</a>
             </li>
           </ul>
+            <form class="form-inline">
+              <input class="form-control mt-sm-2 mb-sm-2 ml-sm-2 mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success btn-lg my-2 my-sm-0" type="submit">Search</button>
+            </form>
       </div>
     </nav>
-  </header>
-  
-  <main>
 
-    <h1>Pokémon Deck aka "Pokédex"</h1>
-    <p class='intro container'>What's your favorite Pokémon?</p>
+      
+        <div class="container-fluid">
+          
+          <img src="img/pexels-abhishek-rana-4188296.jpg" alt="pokemon bulbasaur toy">
+          
+          <div class="card-body mx-auto intro">
+            <div class="card-title text-center"><strong>Pokémon Deck aka "Pokédex"
+            </strong></div>                
+            <div class="card-text text-center">What's your favorite Pokémon?</div>
+          </div>
+            <figcaption class="blockquote-footer text-dark">
+                Foto von <cite title="Source Title">Abhishek Rana</cite> von Pexels
+            </figcaption>
+          
+        </div>
+    
+    
+  <main>
 
     <ul class='list-unstyled list-group'></ul>
     <div class='message'>Pokemons are loading...</div>

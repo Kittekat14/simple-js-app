@@ -18,20 +18,23 @@ h1 {
 h2 {
   font-size: 24px;
 }
-p {
-  text-align: justify;
+img[alt="pokemon bulbasaur toy"] {
+  width: 100%;
 }
-header {
-  text-align: center;
+.card-title {
+  color: #006a78;
+  -webkit-text-stroke: 3px #002a3a;
+  font-size: 36px;
+}
+.card-text {
+  font-size: 30px;
+  color: gold;
+  -webkit-text-stroke: 2px #1e5dbc;
 }
 .intro {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
-  font-size: 34px;
   text-align: center;
-  background-color: #043626;
-  color: gold;
-  -webkit-text-stroke: 2px #1e5dbc;
   padding: 20px 5px;
 }
 ul.pokemon-list {
@@ -48,6 +51,21 @@ li {
   flex: 0 0 50px; /*wenn flex-direction: column; dann ist hier Höhe gemeint*/
   margin: 0 auto;
   text-align: center;
+}
+
+.container-fluid {
+  position: relative;
+}
+img[alt="pokemon bulbasaur toy"] {
+  position: relative;
+  width: 100%;
+}
+.card-body {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  right: 10%;
+  top: 10px;
 }
 .pokemon-button {
   font-size: 22px;
@@ -80,8 +98,38 @@ li {
 .loading-message {
   display: block;
 }
+
+.modal {
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+.modal-content {
+  margin: auto;
+  display: inline-block;
+  background: #fafab5;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
 /****Media Queries****/
 @media all and (max-width: 980px) {
+  .intro {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #043626;
+    padding: 20px 5px;
+  }
   .pokemon-button {
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
@@ -101,8 +149,16 @@ li {
   }
 }
 @media all and (max-width: 500px) {
-  img[alt="pokemon-logo"] {
-    width: 60%;
+
+  .card-title {
+    color: #0db3f5;
+    font-size: 22px;
+    -webkit-text-stroke: unset;
+  }
+  .card-text {
+    font-size: 16px;
+    color: gold;
+    -webkit-text-stroke: unset;
   }
   .pokemon-button {
     font-size: 18px;
@@ -122,69 +178,4 @@ li {
     background-color: lightgreen;
   }
 }
-
-/*Modal Styling*/
-/*
-#modal-container.is-visible {
-  position: fixed;
-  box-sizing: border-box;
-  padding: 20px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  
-  /* to show it above other content 
-  z-index: 999; 
-  
-  /* to allow scrolling if the screen is not high enough
-  overflow: auto; 
-  
-  /* this is used to center the modal 
-  display: grid;
-  text-align: center;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #fafab5;
-  padding: 20px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.modal h1 {
-  text-align: center;
-}
-
-.modal p {
-  text-align: center;
-}
-.modal div {
-  margin-bottom: 20px;
-}
-.modal img {
-  width: 150px;
-}
-#modal-container {
-  display: none;
-}
-#modal-container.is-visible {
-  display: block;
-}
-*/
 
