@@ -151,17 +151,17 @@ img[alt="pokemon bulbasaur"] {
     background-color: lightgreen;
   }
 }
-@media all and (max-width: 500px) {
+@media all and (max-width: 570px) {
   img[alt="pokemon-logo"] {
     width: 75%;
   }
   .card-title {
     color: #0db3f5cc;
-    font-size: 24px;
+    font-size: 35px;
     -webkit-text-stroke: unset;
   }
   .card-text {
-    font-size: 20px;
+    font-size: 25px;
     color: #ffd700cc;
     -webkit-text-stroke: unset;
   }
