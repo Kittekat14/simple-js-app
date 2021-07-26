@@ -2,7 +2,15 @@ let pokemonRepository = (function() {
 	let modalContainer = document.querySelector('#exampleModal');
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+	let searchBar = $('#searchBar');
 
+	searchBar.addEventListener('keyup', (e) => {
+		const searchString = e.target.value.toLowerCase();
+		const filteredPokemon = pokemonList.filter((pokemon) => {
+			return pokemon.name.toLowerCase().includes(searchString);
+		});
+		addListItem(filteredPokemon);
+	})
 
 	function add(pokemon) {
 		if (typeof pokemon === 'object' &&
