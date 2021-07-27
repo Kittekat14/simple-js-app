@@ -1,30 +1,32 @@
+//IIFE
 let pokemonRepository = (function() {
+	//Pokemon Array
 	let pokemonList = [];
+	//URL for fetching data from API
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-	
+	//Used in loadList function for adding loaded data to pokemonList Array above
 	function add(pokemon) {
 		if (typeof pokemon === 'object' &&
 			Object.keys(pokemon).includes('name') &&
 			Object.keys(pokemon).includes('detailsUrl')) {
 			pokemonList.push(pokemon)
-		} 
-		else {
+		} else {
 			console.log('This is no pokemon object.');
 		}
 	}
 
 	//Search Bar
 	let searchBar = document.querySelector('#searchBar');
-	searchBar.addEventListener('input', function(){
-	let listPokemon = document.querySelectorAll(".group-list-item");
-	let searchString = searchBar.value.toLowerCase();
+	searchBar.addEventListener('input', function() {
+		let listPokemon = document.querySelectorAll(".group-list-item");
+		let searchString = searchBar.value.toLowerCase();
 
-		listPokemon.forEach(function(pokemon){
-			if(pokemon.innerText.toLowerCase().indexOf(searchString) > -1){
+	    listPokemon.forEach(function(pokemon) {
+		    if (pokemon.innerText.toLowerCase().indexOf(searchString) > -1) {
 				pokemon.style.display = "";
 			} else {
 				pokemon.style.display = "none";
-			}
+			}	
 		})
 	});
 
@@ -57,7 +59,7 @@ let pokemonRepository = (function() {
 		listItem.appendChild(button);
 		pokemonList.appendChild(listItem);
 		button.addEventListener('click', function(event) {
-			showDetails(pokemon); //inside the code-block must be the calling of actually-doing-something-function
+			showDetails(pokemon);
 		});
 	}
 
@@ -127,7 +129,7 @@ let pokemonRepository = (function() {
 		let heightElement = $('<p>' + "height : " + item.height + '</p>');
 		let typesElement = $('<p>' + "types : " + item.types + '</p>');
 		let abilitiesElement = $('<p>' + "abilities : " + item.abilities + '</p>');
-		
+
 		modalTitle.append(nameElement);
 		modalBody.append(imageElementFront);
 		modalBody.append(imageElementBack);
@@ -136,17 +138,17 @@ let pokemonRepository = (function() {
 		modalBody.append(abilitiesElement);
 
 	}
-		
-		return {
-			add: add,
-			getAll: getAll,
-			addListItem: addListItem,
-			loadList: loadList,
-			loadDetails: loadDetails,
-			showDetails: showDetails
-		};
 
-	})();
+	return {
+		add: add,
+		getAll: getAll,
+		addListItem: addListItem,
+		loadList: loadList,
+		loadDetails: loadDetails,
+		showDetails: showDetails
+	};
+
+})();
 
 
 pokemonRepository.loadList().then(function() {
@@ -156,3 +158,4 @@ pokemonRepository.loadList().then(function() {
 	});
 
 });
+
