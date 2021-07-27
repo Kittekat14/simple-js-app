@@ -1,26 +1,33 @@
 let pokemonRepository = (function() {
-	let modalContainer = document.querySelector('#exampleModal');
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
-	let searchBar = $('#searchBar');
-
-	searchBar.addEventListener('keyup', (e) => {
-		const searchString = e.target.value.toLowerCase();
-		const filteredPokemon = pokemonList.filter((pokemon) => {
-			return pokemon.name.toLowerCase().includes(searchString);
-		});
-		addListItem(filteredPokemon);
-	})
-
+	
 	function add(pokemon) {
 		if (typeof pokemon === 'object' &&
 			Object.keys(pokemon).includes('name') &&
 			Object.keys(pokemon).includes('detailsUrl')) {
 			pokemonList.push(pokemon)
-		} else {
+		} 
+		else {
 			console.log('This is no pokemon object.');
 		}
 	}
+
+	//Search Bar
+	let searchBar = document.querySelector('#searchBar');
+	searchBar.addEventListener('input', function(){
+	let listPokemon = document.querySelectorAll(".group-list-item");
+	let searchString = searchBar.value.toLowerCase();
+
+		listPokemon.forEach(function(pokemon){
+			if(pokemon.innerText.toLowerCase().indexOf(searchString) > -1){
+				pokemon.style.display = "";
+			} else {
+				pokemon.style.display = "none";
+			}
+		})
+	});
+
 
 	function showLoadingMessage() {
 		document.querySelector('.message').classList.add('loading-message');
@@ -43,6 +50,7 @@ let pokemonRepository = (function() {
 		listItem.setAttribute('role', 'presentation');
 		let button = document.createElement('button');
 		button.classList.add('pokemon-button', 'btn', 'btn-lg', 'text-center', 'btn-block');
+		// Bootstrap attributes for .pokemon-button will open the modal:
 		button.setAttribute('data-toggle', 'modal');
 		button.setAttribute('data-target', '#exampleModal');
 		button.innerText = pokemon.name;
