@@ -16,7 +16,7 @@ let pokemonRepository = (function() {
 	}
 
 	//Search Bar
-	let searchBar = document.querySelector('#searchBar');
+	let searchBar = document.querySelector("#searchBar");
 	searchBar.addEventListener('input', function() {
 		let listPokemon = document.querySelectorAll(".group-list-item");
 		let searchString = searchBar.value.toLowerCase();
