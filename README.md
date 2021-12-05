@@ -11,3 +11,7 @@ A small and simple, but easy to understand JavaScript Web-App that enables the u
 -	ESLint
 ## Connected API
 -	https://pokeapi.co/api/v2/pokemon/
+
+![Pokedex-App - Kopie](https://user-images.githubusercontent.com/83455469/144756048-979e6d0f-da70-46c9-a82a-44ad6ed2870b.PNG)
+![Pokedex-App-2 - Kopie](https://user-images.githubusercontent.com/83455469/144756052-3b58b349-2f58-432c-b43b-693a94b135e9.PNG)
+
